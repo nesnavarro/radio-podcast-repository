@@ -1,0 +1,316 @@
+:root{
+	--font: 'Helvetica', 'Exo', sans-serif;
+	--font-size: 1.5rem;
+	--font-size-buttons: 1rem;
+	--font-weight-light: 200;
+	--font-weight-regular: 400;
+	--font-weight-bold: 600;
+
+	--gap: 15px;
+	--espacioS: 5px;
+	--espacioM: 10px;
+	--espacioL: 20px;
+	--espacioXL: 40px;
+	--line-height-medium: 2.5rem;
+
+	--border-size: 1px;
+
+	--border-color: var(--color-black);
+	--color-inaudible: #da4e3f;
+	--color-redes: #599dda;
+	--color-contextos: #e5bb58;
+	--color-procesos: #97b363;
+
+	--color-soft-grey: #e5eae8;
+	--color-white: #ffff;
+	--color-black: #211e1e;
+	--color-grey: #999;
+}
+
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	list-style: none;	
+	border-collapse: collapse;
+}
+
+body{
+	font-family: var(--font);
+	font-weight: var(--font-weight-regular);
+}
+
+a{
+	text-decoration: none;
+	color: inherit;
+}
+
+.background{
+	background-color: var(--color-soft-grey);
+}
+
+.full-container{
+	width: 100vw;
+	padding: calc(var(--espacioL) - 10px);
+	background-color: var(--color-soft-grey);
+}
+
+
+.flex{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.grid{
+	display: grid;
+}
+
+
+
+.no-view-mobile{
+	display: none;
+}
+
+/*CABECERA*/
+
+header.full-container{
+	padding-bottom: 0;
+}
+
+header.header{
+	background-color: var(--color-soft-grey);
+	position: sticky;
+	z-index: 1;
+
+}
+
+.title{
+	font-size: calc(var(--font-size) + 1.0vw);
+	padding: 0 0 var(--espacioM) 0;
+}
+
+.title > p > b{
+	color: var(--color-inaudible);
+	font-weight: 600;
+}
+
+/*NAVEGADOR*/
+.menu{
+	padding: 0 0 calc(var(--espacioL) + 2vw) 0;
+
+}
+
+nav ul li{
+/*	min-height: calc(var(--line-height-medium) + var(--border-size)  + var(--border-size));
+*/}
+
+nav ul a.button{
+	font-size: calc(var(--font-size-buttons) + 2vw);
+	border: var(--border-size) solid var(--border-color);
+	border-radius: 100px;
+	padding: 0 var(--espacioL);
+	line-height: var(--line-height-medium);
+	display: block;
+}
+
+nav ul a.button:hover{
+	background-color: var(--color-black);
+	color: var(--color-white);
+	border-color: transparent;
+	cursor: pointer;
+}
+
+nav ul a.button-inaudible{
+	background-color: var(--color-inaudible);
+}
+
+nav ul a.button-redes{
+	background-color: var(--color-redes);
+}
+
+nav ul a.button-contextos{
+	background-color: var(--color-contextos);
+}
+
+nav ul a.button-procesos{
+	background-color: var(--color-procesos);
+}
+
+/*LISTADO DE PISTAS*/
+
+main.full-container{
+	padding-top: 0;
+}
+
+ul.list{
+	position: relative;
+}
+
+a.grid-list:hover{
+	position: relative;
+}
+
+a.grid-list > p{
+	color: var(--color-grey);
+}
+
+a.grid-list > p > span{
+	color: var(--color-black);
+}
+
+a.grid-list{
+	grid-auto-rows:auto;
+	padding: var(--espacioS);
+	border-bottom: var(--border-size) solid var(--border-color);
+}
+
+a.grid-list p{
+	font-weight: var(--font-weight-light);
+	display: inline;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: fade(15px 50%);
+}
+
+a.grid-list p.titulo-capsula{
+	font-weight: var(--font-weight-regular)!important;
+}
+
+a.grid-list:hover{
+	cursor: pointer;
+	color: var(--color-white);
+}
+
+a.grid-list:hover span{
+	font-weight: var(--font-weight-bold);
+	color: var(--color-white);
+}
+
+a.list-inaudible:hover{
+	background-color: var(--color-inaudible);
+}
+
+a.list-procesos:hover{
+	background-color: var(--color-procesos);
+}
+
+a.list-redes:hover{
+	background-color: var(--color-redes);
+}
+
+a.list-contextos:hover{
+	background-color: var(--color-contextos);
+}
+
+
+/*SCROLLING TEXT*/
+
+
+
+/*IMÁGENES*/
+
+a.grid-list + div img.img-preview{
+	display: none;
+}
+
+/*--------------------------
+			768px
+-----------------------------*/
+
+@media screen and (min-width:  768px){
+
+	.no-view-mobile{
+		display: inline-block;
+	}
+
+	.full-container{
+		padding: var(--espacioL);
+	}
+
+	header.full-container{
+		padding-bottom: 0;
+	}
+
+	nav ul a.button{
+		font-size: calc(var(--font-size-buttons) + 0.5vw);
+		border: var(--border-size) solid var(--border-color);
+		border-radius: 100px;
+		padding: 0 var(--espacioL);
+	}
+
+	a.grid-list{
+		gap: var(--espacioL);
+		grid-template-columns: 4fr 1fr 2fr;
+		transition:  background-color 0.2s ease;
+
+	}
+
+	a.grid-list:hover{
+		display: flex;
+	}
+
+	a.grid-list:hover p{
+		cursor: pointer;
+		color: var(--color-white);
+		display: none;
+	}
+
+	a.grid-list:hover p.titulo-capsula{
+		display: inline-block;
+		grid-template-columns: 1fr;
+		padding-left: var(--espacioS);
+	}
+
+	/*IMÁGENES*/
+
+/*	a:hover:after {
+	    content: url(https://radio.museoreinasofia.es/sites/default/files/styles/ancho_completo/public/audio/imgs/kenneth_goldsmith_rrs.jpg?itok=7COgtC6I); 
+	    display: block;
+	    position: fixed;
+	    border: var(--border-size) solid var(--border-color);
+		border-radius: 20px;
+		width: 0.45;
+		right: var(--espacioL);
+		bottom: calc(0vh + var(--espacioL));
+	}
+*/
+
+
+	a.grid-list:hover + div img.img-preview{
+		display: block;
+		z-index: 2;
+	    position: fixed;
+	    border: var(--border-size) solid var(--border-color);
+		border-radius: 20px;
+		max-height: 50vh;
+		max-width: 45vw;
+		right: var(--espacioL);
+		bottom: calc(0vh + var(--espacioL));
+	}
+
+}/*768*/
+
+
+
+
+/*--------------------------
+			992px
+-----------------------------*/
+
+@media screen and (min-width:  992px){
+
+
+}/*992*/
+
+
+
+
+
+
+/*--------------------------
+			1200px
+-----------------------------*/
+
+@media screen and (min-width:  1200px){
+
+}/*1200*/
